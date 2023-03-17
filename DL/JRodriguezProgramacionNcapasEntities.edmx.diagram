@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="363881385ad54b2a9ad7bfafb3ddc5fd" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Area" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Colonia" Width="1.5" PointX="8" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Departamento" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Direccion" Width="1.5" PointX="10.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Estado" Width="1.5" PointX="3.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.MetodoPago" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Municipio" Width="1.5" PointX="5.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Pai" Width="1.5" PointX="1.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Producto" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Proveedor" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.rol" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Usuario" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.Venta" Width="1.5" PointX="12" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JRodriguezProgramacionNcapasModel.VentaProducto" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Departame__idAre__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Colonia__idMunic__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Direccion__idCol__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Producto__idDepa__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Direccion__idUsu__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Estado__idPais__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Municipio__idEst__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Venta__idMetodoP__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Producto__idProv__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__VentaProd__idPro__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="JRodriguezProgramacionNcapasModel.FK__Usuario__idRol__1ED998B2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
