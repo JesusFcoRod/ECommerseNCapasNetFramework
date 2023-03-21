@@ -14,7 +14,13 @@ namespace PLMVC.Controllers
         {
             ML.Departamento departamento = new ML.Departamento();
 
-            ML.Result result = BL.Departamento.DepartamentoGetAll();
+            //ML.Result result = BL.Departamento.DepartamentoGetAll();
+
+            //------- WCF SERVICE --------------------------------------------------
+            DepartamentoService.DepartamentoClient departamentoClient = new DepartamentoService.DepartamentoClient();
+            ML.Result result = departamentoClient.GetAll();
+            //----------------------------------------------------------------------
+
             departamento.Departamentos = result.Objects;
 
 
@@ -37,9 +43,12 @@ namespace PLMVC.Controllers
 
             if (idDepartamento != null)
             {
-                departamento.idDepartamento = idDepartamento.Value;
+                //departamento.idDepartamento = idDepartamento.Value;
 
-                ML.Result result = BL.Departamento.DepartamentoGetById(departamento);
+                //ML.Result result = BL.Departamento.DepartamentoGetById(departamento);
+
+                DepartamentoService.IDepartamento departamentoClient = new DepartamentoService.DepartamentoClient();
+                ML.Result result = departamentoClient.GetById(idDepartamento.Value);
 
                 if (result.Correct)
                 {
@@ -69,15 +78,30 @@ namespace PLMVC.Controllers
 
             if (departamento.idDepartamento > 0)
             {
-                //UPDATE
-                result = BL.Departamento.DepartamentoUpdate(departamento);
+                //------------------ UPDATE SIN WCF -------------------------
+                //result = BL.Departamento.DepartamentoUpdate(departamento);
+                //ViewBag.Message = "Se ha actualizado el registro";
+                //return View("Modal");
+                //-----------------------------------------------------------
+
+                //------------------ UPDATE WCF -----------------------------
+                DepartamentoService.DepartamentoClient departamentoClient = new DepartamentoService.DepartamentoClient();
+                result = departamentoClient.Update(departamento);
                 ViewBag.Message = "Se ha actualizado el registro";
+                //-----------------------------------------------------------
             }
             else
             {
-                //ADD
-                result = BL.Departamento.DepartamentoAdd(departamento);
+                // ----------------- ADD SIN WCF ----------------------------
+                //result = BL.Departamento.DepartamentoAdd(departamento);
+                //ViewBag.Message = "Se ha agregadao el nuevo el registro";
+                //-----------------------------------------------------------
+
+                //------------------ ADD WCF --------------------------------
+                DepartamentoService.DepartamentoClient departamentoClient = new DepartamentoService.DepartamentoClient();
+                result = departamentoClient.Add(departamento);
                 ViewBag.Message = "Se ha agregadao el nuevo el registro";
+                //-----------------------------------------------------------
 
             }
 
@@ -98,7 +122,12 @@ namespace PLMVC.Controllers
             ML.Departamento departamento = new ML.Departamento();
             departamento.idDepartamento = idDepartamento;
 
-            ML.Result resultDelete = BL.Departamento.DepartamentoDelete(idDepartamento);
+            //ML.Result resultDelete = BL.Departamento.DepartamentoDelete(idDepartamento);
+
+            //--------------------- DELETE WCF -----------------------------------------
+            DepartamentoService.DepartamentoClient departamentoClient = new DepartamentoService.DepartamentoClient();
+            ML.Result resultDelete = departamentoClient.Delete(idDepartamento);
+            //--------------------------------------------------------------------------
 
             if (resultDelete.Correct == true)
             {

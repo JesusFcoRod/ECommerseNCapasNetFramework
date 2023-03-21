@@ -126,7 +126,7 @@ namespace BL
             return resultGetAll;
         }
 
-        public static ML.Result DepartamentoGetById(ML.Departamento departamento)
+        public static ML.Result DepartamentoGetById(int idDepartamento)
         {
             ML.Result resultGI = new ML.Result();
 
@@ -134,7 +134,7 @@ namespace BL
             {
                 using (DL.JRodriguezProgramacionNcapasEntities contex = new DL.JRodriguezProgramacionNcapasEntities())
                 {
-                    var query = contex.DepartamentoGetByID(departamento.idDepartamento).FirstOrDefault();
+                    var query = contex.DepartamentoGetByID(idDepartamento).FirstOrDefault();
 
                     ML.Departamento departamentoG = new ML.Departamento();
 
@@ -143,7 +143,7 @@ namespace BL
 
                     departamentoG.Area = new ML.Area();
 
-                    departamento.Area.idArea = query.IDArea.Value;
+                    departamentoG.Area.idArea = query.IDArea.Value;
                     departamentoG.Area.nombre = query.AreaNombre;
 
                     resultGI.Object = departamentoG;

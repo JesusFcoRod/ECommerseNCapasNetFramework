@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,7 +16,10 @@ namespace PLMVC.Controllers
             ML.Producto producto = new ML.Producto();
             producto.Departamento = new ML.Departamento();
 
-            ML.Result result = BL.Producto.GetAll(producto);
+            //ML.Result result = BL.Producto.GetAll(producto);
+            ServiceProducto.ProductoClient productoClient = new ServiceProducto.ProductoClient();
+
+            ML.Result result = productoClient.GetAll(producto);
 
 
             if (resultDep.Correct && result.Correct)

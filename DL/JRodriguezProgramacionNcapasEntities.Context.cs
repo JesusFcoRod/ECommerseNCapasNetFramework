@@ -341,15 +341,6 @@ namespace DL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ProductoAdd", nombreParameter, precioUnitarioParameter, stockParameter, idProveedorParameter, idDepartamentoParameter, descripcionParameter, imagenParameter);
         }
     
-        public virtual ObjectResult<ProductoGetAll_Result> ProductoGetAll(Nullable<int> departamento)
-        {
-            var departamentoParameter = departamento.HasValue ?
-                new ObjectParameter("Departamento", departamento) :
-                new ObjectParameter("Departamento", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductoGetAll_Result>("ProductoGetAll", departamentoParameter);
-        }
-    
         public virtual ObjectResult<ProductoGetById_Result> ProductoGetById(Nullable<int> idProducto)
         {
             var idProductoParameter = idProducto.HasValue ?
@@ -435,6 +426,24 @@ namespace DL
                 new ObjectParameter("idDepartamento", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DepartamentoGetByID_Result>("DepartamentoGetByID", idDepartamentoParameter);
+        }
+    
+        public virtual int ProductoDelete(Nullable<int> idProducto)
+        {
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ProductoDelete", idProductoParameter);
+        }
+    
+        public virtual ObjectResult<ProductoGetAll_Result> ProductoGetAll(Nullable<int> departamento)
+        {
+            var departamentoParameter = departamento.HasValue ?
+                new ObjectParameter("Departamento", departamento) :
+                new ObjectParameter("Departamento", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductoGetAll_Result>("ProductoGetAll", departamentoParameter);
         }
     }
 }

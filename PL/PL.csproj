@@ -55,6 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\DepartamentoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\OperacionesService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -65,6 +70,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\DepartamentoService\Departamento.wsdl" />
+    <None Include="Connected Services\DepartamentoService\Departamento.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\OperacionesService\Operaciones.wsdl" />
     <None Include="Connected Services\OperacionesService\Operaciones.xsd">
       <SubType>Designer</SubType>
@@ -73,6 +94,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ML.Result.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj">
@@ -88,6 +110,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\DepartamentoService\" />
     <WCFMetadataStorage Include="Connected Services\OperacionesService\" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +124,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\OperacionesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DepartamentoService\Departamento.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DepartamentoService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DepartamentoService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\DepartamentoService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

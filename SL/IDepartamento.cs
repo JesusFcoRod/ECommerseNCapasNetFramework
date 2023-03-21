@@ -3,18 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Description;
 using System.Text;
 
 namespace SL
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IDepartamentoAdd" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IDepartamento" in both code and config file together.
     [ServiceContract]
     public interface IDepartamento
     {
-        //EN LA INTERFAZ SE DEFINEN LOS METODOS
         [OperationContract]
-        void DoWork();
- 
+        ML.Result Add(ML.Departamento departamento);
+
+        [OperationContract]
+        ML.Result Update(ML.Departamento departamento);
+
+        [OperationContract]
+        ML.Result Delete(int idUsuario);
+
+        [OperationContract]
+        [ServiceKnownType(typeof(ML.Departamento))]
+        ML.Result GetAll();
+
+        [OperationContract]
+        [ServiceKnownType(typeof(ML.Departamento))]
+        ML.Result GetById(int idDepartamento);
     }
 }

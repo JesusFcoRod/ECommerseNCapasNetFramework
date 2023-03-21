@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +57,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +130,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\DepartamentoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceProducto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -137,6 +150,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DepartamentoService\Departamento.disco" />
+    <None Include="Connected Services\DepartamentoService\configuration91.svcinfo" />
+    <None Include="Connected Services\DepartamentoService\configuration.svcinfo" />
+    <None Include="Connected Services\DepartamentoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceProducto\Producto.disco" />
+    <None Include="Connected Services\ServiceProducto\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceProducto\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceProducto\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -147,6 +174,39 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\ML.Result.datasource" />
+    <None Include="Connected Services\DepartamentoService\Departamento.wsdl" />
+    <None Include="Connected Services\DepartamentoService\Departamento.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DepartamentoService\Departamento4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProducto\Producto.wsdl" />
+    <None Include="Connected Services\ServiceProducto\Producto.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProducto\Producto1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProducto\Producto2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProducto\Producto3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceProducto\Producto4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -206,6 +266,13 @@
       <Project>{a5ad557c-c56f-4259-9ded-b0a17c1719c9}</Project>
       <Name>ML</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\DepartamentoService\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceProducto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -28,6 +28,10 @@ namespace PL
                 Console.WriteLine("10.- RESTA CON SOAP SERVICE");
                 Console.WriteLine("11.- MULTIPLICACION CON SOAP SERVICE");
                 Console.WriteLine("12.- DIVICION CON SOAP SERVICE");
+                Console.WriteLine("13.- GET ALL DEPARATAMENTO WCF");
+                Console.WriteLine("14.- ADD DEPARATAMENTO WCF");
+                Console.WriteLine("15.- UPDATE DEPARATAMENTO WCF");
+                Console.WriteLine("16.- DELETE DEPARATAMENTO WCF");
                 op = int.Parse(Console.ReadLine());
 
 
@@ -373,7 +377,7 @@ namespace PL
                         int b = int.Parse(Console.ReadLine());
 
                         OperacionesService.IOperaciones operaciones = new OperacionesService.OperacionesClient();
-                        var resultado = operaciones.SumarNumeros(a,b);
+                        var resultado = operaciones.SumarNumeros(a, b);
 
 
                         Console.WriteLine("El resultado de la suma es: " + resultado);
@@ -388,7 +392,7 @@ namespace PL
                         int d = int.Parse(Console.ReadLine());
 
                         OperacionesService.IOperaciones operacionesResta = new OperacionesService.OperacionesClient();
-                        var resultadoResta = operacionesResta.RestarNumeros(c,d);
+                        var resultadoResta = operacionesResta.RestarNumeros(c, d);
 
 
                         Console.WriteLine("El resultado de la resta es: " + resultadoResta);
@@ -403,7 +407,7 @@ namespace PL
                         int f = int.Parse(Console.ReadLine());
 
                         OperacionesService.IOperaciones operacionesMult = new OperacionesService.OperacionesClient();
-                        var resultadoMult = operacionesMult.MultiplicarNumeros(e,f);
+                        var resultadoMult = operacionesMult.MultiplicarNumeros(e, f);
 
 
                         Console.WriteLine("El resultado de multiplicar es: " + resultadoMult);
@@ -418,16 +422,102 @@ namespace PL
                         int y = int.Parse(Console.ReadLine());
 
                         OperacionesService.IOperaciones operacionesDiv = new OperacionesService.OperacionesClient();
-                        var resultadoDiv = operacionesDiv.DividirNumeros(x,y);
+                        var resultadoDiv = operacionesDiv.DividirNumeros(x, y);
 
 
                         Console.WriteLine("El resultado de la divicion es: " + resultadoDiv);
 
                         break;
 
+                    case 13:
+                        ML.Result resultDepAll = new ML.Result();
+                        DepartamentoService.IDepartamento departamentoService = new DepartamentoService.DepartamentoClient();
+                        resultDepAll = departamentoService.GetAll();
+
+                        foreach (ML.Departamento departamentoAll in resultDepAll.Objects)
+                        {
+                            Console.WriteLine("-----------------------------------------");
+                            Console.WriteLine("DEPARTAMENTO: " + departamentoAll.nombre);
+                            Console.WriteLine("AREA: " + departamentoAll.Area.nombre);
+                            Console.WriteLine("-------------------------------------------");
+                        }
+                        break;
+
+                    case 14:
+                        ML.Result resultAdd = new ML.Result();
+                        ML.Departamento departamento = new ML.Departamento();
+
+                        Console.WriteLine("Ingrese el nombre del departamento: ");
+                        departamento.nombre = Console.ReadLine();
+
+                        Console.WriteLine("Ingrese el id del Area: ");
+                        departamento.Area = new ML.Area();
+                        departamento.Area.idArea = int.Parse(Console.ReadLine());
+
+                        DepartamentoService.IDepartamento departamentoServiceAdd = new DepartamentoService.DepartamentoClient();
+                        resultAdd = departamentoServiceAdd.Add(departamento);
+
+                        if (resultAdd.Correct)
+                        {
+                            Console.WriteLine("El Departamento se agrego correctamente a la base de datos ");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ocurrio un error al intenter registrar el Departamento " + resultAdd.ErrorMessage);
+                        }
+                        break;
+
+                    case 15:
+                        ML.Result resultUpp = new ML.Result();
+                        ML.Departamento departamentoUpp = new ML.Departamento();
+
+                        Console.WriteLine("Ingrese el id del Departamento: ");
+                        departamentoUpp.idDepartamento = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Ingrese el nombre del departamento: ");
+                        departamentoUpp.nombre = Console.ReadLine();
+
+                        Console.WriteLine("Ingrese el id del Area: ");
+                        departamentoUpp.Area = new ML.Area();
+                        departamentoUpp.Area.idArea = int.Parse(Console.ReadLine());
+
+                        DepartamentoService.IDepartamento departamentoServiceUpp = new DepartamentoService.DepartamentoClient();
+                        resultUpp = departamentoServiceUpp.Update(departamentoUpp);
+
+                        if (resultUpp.Correct)
+                        {
+                            Console.WriteLine("El Departamento se actualizo correctamente ");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ocurrio un error al intenter actualizar el Departamento " + resultUpp.ErrorMessage);
+                        }
+                        break;
+
+                    case 16:
+                        ML.Result resultDeleteDep = new ML.Result();
+                        Console.WriteLine("Ingrese el id Del Departamento a Eliminar: ");
+                        int idDepartamentoWCF = int.Parse(Console.ReadLine());
+
+                        DepartamentoService.IDepartamento departamentoServiceDel = new DepartamentoService.DepartamentoClient();
+                        resultDeleteDep = departamentoServiceDel.Delete(idDepartamentoWCF);
+
+                        if (resultDeleteDep.Correct)
+                        {
+                            Console.WriteLine("El Departamento se elimino correctamente ");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ocurrio un error al intenter eliminar el Departamento " + resultDeleteDep.ErrorMessage);
+                        }
+                        break;
+                    case 17:
+
+                        break;
+
                         // METODOS LINQ
 
-                        //case 8:
+                        //case 8:   
                         //    ML.Usuario usuarioLQ2 = new ML.Usuario();
 
                         //    Console.WriteLine("Ingrese el ID del usuario a modificar: ");
@@ -545,6 +635,8 @@ namespace PL
                         //    Console.ReadKey();
 
                         //    break;
+
+
 
                 }
             } while (op <= 12);
